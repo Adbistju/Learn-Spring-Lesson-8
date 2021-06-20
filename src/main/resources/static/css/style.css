@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.base {
+  margin: auto;
+  align-content: center;
+  background-color: azure;
+  min-height: 650px;
+}
+
+.center {
+  margin: auto;
+  max-width: 1440px;
+  min-height: 450px;
+  align-content: center;
+  text-align: center;
+  background-color: rgb(158, 235, 235);
+}

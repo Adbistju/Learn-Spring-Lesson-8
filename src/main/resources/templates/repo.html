@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Document</title>
+
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        /*font-family: "1 Amazone M";*/
+        font-family: "Virtual DJ";
+      }
+
+      .base {
+        margin: auto;
+        align-content: center;
+        background-color: azure;
+        background-color: rgb(158, 235, 235);
+      }
+
+      .center {
+        margin: auto;
+        max-width: 1440px;
+        align-content: center;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 1440px;
+        border: 10px double black;
+        margin-top: 30px;
+      }
+
+      .my-2{
+        border: 1px double black;
+        padding: 20px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="base container">
+      <div class="center col-12">
+        <h1>Hello!</h1>
+        <p>This page</p>
+        <br>
+
+        <div class="col-12">
+          <table class="table table-bordered my-2">
+            <thead>
+            <tr class="my-2">
+              <th scope="col" class="my-2">Id</th>
+              <th scope="col" class="my-2">Title</th>
+              <th scope="col" class="my-2">Category</th>
+              <th scope="col" class="my-2">Price($)</th>
+              <th scope="col" class="my-2">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${product}"  >
+              <th th:text="${product.id}" scope="row" class="my-2">1</th>
+              <td th:text="${product.title}" class="my-2">Synthetic brush</td>
+              <td th:text="${product.category}" class="my-2">Brushes</td>
+              <td th:text="${product.price}" class="my-2">1$</td>
+              <td class="my-2">
+                <a class="btn btn-success" th:href="@{/{id}(id = ${product.id})}"><p>edit</p><i class="fas fa-edit"></i></a>
+                <a class="btn btn-danger" th:href="@{/delete/{id}(id = ${product.id})}"><p>delete</p><i class="far fa-trash-alt"></i></a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
